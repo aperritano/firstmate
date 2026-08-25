@@ -2348,6 +2348,84 @@ test_id_resolution_finds_an_archived_hold() {
   pass "the completion gate and the shim's resolve replay both find a hold after it archives"
 }
 
+# A review of the archive-lookup fix (PR #3066) flagged that a lookup whose
+# active half and archive half are resolved from two independently computed
+# bases can point them at two different directories. The invariant is that both
+# halves address the ONE backlog the caller named; this pins it where the two
+# can actually come apart.
+#
+# A relocated FM_DATA_OVERRIDE splits them: the backlog is addressed as
+# <data>/backlog.md, but tasks-axi resolves its configured `[markdown] archive`
+# against the backlog ROOT, so the archive lands in the configured directory
+# and NOT beside the relocated backlog. An archive path assumed to sit beside
+# the backlog would read the wrong file here - so a decoy archive is planted
+# exactly where that wrong assumption would look.
+test_archive_lookup_and_active_read_share_one_backlog() {
+  local home data id
+  home=$(make_home relocated-archive-lookup)
+  data="$home/records"
+  mv "$home/data" "$data"
+  id=sample-relocated-archive-review
+  # The default location stays empty of rows but still owns the configured
+  # archive, which is the whole point: the two halves resolve to different
+  # directories and must still describe one backlog.
+  mkdir -p "$home/data" "$data/$id"
+  cat > "$home/data/backlog.md" <<'EOF'
+## In flight
+
+## Queued
+
+## Done
+EOF
+  (cd "$home" && tasks-axi add "$id" "Investigate relocated sample archive" --kind scout \
+    --repo sample --start --file "$data/backlog.md" >/dev/null) \
+    || fail "could not create the relocated origin fixture"
+  write_origin_meta "$home" "$id"
+  printf 'done: report complete\n' > "$home/state/$id.status"
+  printf '# Relocated archive review\n\nThe captain must choose.\n' > "$data/$id/report.md"
+
+  run_relocated_captain() {  # <args...>
+    PATH="$home/fakebin:$PATH" REAL_TASKS_AXI="$TASKS_AXI_BIN" \
+      FM_HOME="$home" FM_STATE_OVERRIDE="$home/state" FM_DATA_OVERRIDE="$data" \
+      FM_CONFIG_OVERRIDE="$home/config" "$ROOT/bin/fm-captain-hold.sh" "$@"
+  }
+
+  run_relocated_captain hold sample-relocated-call \
+    --title "Choose the relocated sample option" --reason "captain relocated choice pending" \
+    --repo sample --origin "$id" >/dev/null \
+    || fail "could not register the captain call in the relocated backlog"
+  printf 'Use the relocated option.\n' > "$home/relocated.txt"
+  run_relocated_captain answer sample-relocated-call --decision-file "$home/relocated.txt" >/dev/null \
+    || fail "could not answer the captain call before archiving"
+
+  (cd "$home" && tasks-axi prune --keep 0 --state "done" --file "$data/backlog.md" >/dev/null) \
+    || fail "could not force the resolved call into the archive"
+  if (cd "$home" && tasks-axi show sample-relocated-call --full --file "$data/backlog.md") >/dev/null 2>&1; then
+    fail "setup error: the resolved call did not actually leave the relocated backlog"
+  fi
+  # tasks-axi archived against the ROOT-configured path, not beside the
+  # relocated backlog. Assert that before relying on it, so a tasks-axi change
+  # to this rule fails here by name instead of silently weakening the test.
+  assert_grep "sample-relocated-call" "$home/data/done-archive.md" \
+    "setup error: tasks-axi did not archive against its configured archive path"
+  assert_absent "$data/done-archive.md" \
+    "setup error: tasks-axi archived beside the relocated backlog after all"
+
+  # The decoy: exactly where an archive path assumed to sit beside the backlog
+  # would look. Finding this instead of the real archive is the failure.
+  printf '## Archived 2026-01-01\n- [x] decoy-only-id - Unrelated (repo: sample) (done 2026-01-01)\n' \
+    > "$data/done-archive.md"
+
+  printf 'decisions_reviewed=1\ndecision_keys=sample-relocated-call\n' >> "$home/state/$id.meta"
+  # An archive resolved beside the relocated backlog finds the decoy, which
+  # exists and parses but holds no such id, so the gate reports the resolved
+  # call as permanently absent. Only an archive resolved the way tasks-axi
+  # resolved it when writing passes here.
+  run_relocated_captain verify "$id" >/dev/null \
+    || fail "the completion gate did not find the archived hold of the backlog it was addressing"
+  pass "the archive half of a lookup follows the same backlog its active read addressed"
+}
+
 # The intake is channel-agnostic, so chat must reach it the same way a captured
 # review does - for a task-id key, and for a legacy composed identity.
 test_chat_channel_feeds_the_same_keyed_answer_intake() {
@@ -4118,6 +4196,7 @@ test_unbound_source_closes_no_hold
 test_legacy_identities_keep_working
 test_board_answer_reaches_the_keyed_answer_intake
 test_id_resolution_finds_an_archived_hold
+test_archive_lookup_and_active_read_share_one_backlog
 test_chat_channel_feeds_the_same_keyed_answer_intake
 test_origin_slug_validation_precedes_path_construction
 test_status_resolution_over_an_open_hold_is_signalled

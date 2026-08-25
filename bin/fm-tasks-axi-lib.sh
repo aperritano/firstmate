@@ -108,25 +108,33 @@ fm_tasks_axi_mv_has_multi_id() {
 }
 
 fm_tasks_axi_backend_from_toml() {  # <toml-path>
-  local toml=$1
+  fm_tasks_axi_toml_value "$1" '' backend
+}
+
+# One quoted scalar out of a .tasks.toml, read the way tasks-axi reads it.
+# <table> is the table the key must sit under, empty for the root table, so a
+# `backend` at the root and an `archive` under `[markdown]` come from the same
+# parser instead of two hand-rolled ones.
+fm_tasks_axi_toml_value() {  # <toml-path> <table> <key>
+  local toml=$1 table=$2 key=$3
   [ -f "$toml" ] || return 1
-  LC_ALL=C awk '
+  LC_ALL=C awk -v want_table="$table" -v want_key="$key" '
     function trim(value) {
       sub(/^[[:space:]]+/, "", value)
       sub(/[[:space:]]+$/, "", value)
       return value
     }
-    BEGIN { root=1; found=0; single=sprintf("%c", 39) }
+    BEGIN { table=""; found=0; single=sprintf("%c", 39) }
     {
       line=$0
       sub(/[[:space:]]*#.*/, "", line)
       line=trim(line)
       if (line ~ /^\[[^]]+\]$/) {
-        root=0
+        table=substr(line, 2, length(line) - 2)
         next
       }
-      if (root && line ~ /^backend[[:space:]]*=/) {
-        sub(/^backend[[:space:]]*=[[:space:]]*/, "", line)
+      if (table == want_table && line ~ "^" want_key "[[:space:]]*=") {
+        sub("^" want_key "[[:space:]]*=[[:space:]]*", "", line)
         line=trim(line)
         if ((substr(line, 1, 1) == "\"" && substr(line, length(line), 1) == "\"") ||
             (substr(line, 1, 1) == single && substr(line, length(line), 1) == single)) {
@@ -215,11 +223,15 @@ fm_tasks_axi_backend_available() {
 # keeps the active read - and the read bound - it already had.
 #
 # The archive path is derived from the SAME <data-dir> the caller resolved its
-# active read against, and is never taken as a separate argument: tasks-axi
-# resolves the backlog relative to that directory and knows nothing of
-# FM_DATA_OVERRIDE, so an independently computed archive path could point the
-# archive half of one lookup at a different base than the active half ever
-# checked. Deriving both from one <data-dir> makes that impossible.
+# active read against, and is never taken as a separate argument: an
+# independently computed archive path could point the archive half of one
+# lookup at a different base than the active half ever checked.
+# fm_tasks_axi_markdown_archive owns that derivation and reproduces tasks-axi's
+# own rule rather than assuming the archive sits beside the backlog, because it
+# need not: tasks-axi resolves a configured `[markdown] archive` against the
+# BACKLOG ROOT, independently of where the backlog file itself was addressed,
+# so a relocated FM_DATA_OVERRIDE archives into the configured directory and
+# not into the relocated one.
 #
 # Scoped to the markdown backend, and inert on every other one: done-archive.md
 # is a markdown-backlog artifact, and a configured adapter (Beads) keeps its
@@ -249,7 +261,7 @@ fm_tasks_axi_archive_show() {  # <data-dir> <id> [flag...]
     *) root=. ;;
   esac
   [ "$(fm_tasks_axi_backend "$root" 2>/dev/null)" = markdown ] || return 1
-  archive="$data/done-archive.md"
+  archive=$(fm_tasks_axi_markdown_archive "$root" "$data")
   [ -f "$archive" ] || return 1
   normalized=$(umask 077; mktemp "${TMPDIR:-/tmp}/fm-tasks-axi-archive.XXXXXX") || return 1
   if ! sed 's/^## Archived .*/## Done/' "$archive" > "$normalized" 2>/dev/null; then
@@ -268,6 +280,30 @@ fm_tasks_axi_archive_show() {  # <data-dir> <id> [flag...]
   rm -f -- "$normalized"
   [ "$status" -eq 0 ] || return "$status"
   printf '%s\n' "$out"
+}
+
+# Where tasks-axi archives a pruned done row for the markdown backend, resolved
+# exactly as tasks-axi resolves it: a `[markdown] archive` in the backlog root's
+# own .tasks.toml, else one in $HOME/.tasks-axi/config.toml (the same two
+# sources, in the same order, that fm_tasks_axi_backend_resolve reads), else
+# tasks-axi's own default of done-archive.md beside the backlog file.
+#
+# A configured value is relative to the backlog ROOT, not to <data-dir>: with a
+# relocated FM_DATA_OVERRIDE the backlog is addressed as <data-dir>/backlog.md
+# while its archive still lands under the configured path, so deriving the
+# archive from <data-dir> alone would look for it in a directory tasks-axi
+# never writes.
+fm_tasks_axi_markdown_archive() {  # <backlog-root> <data-dir>
+  local root=$1 data=$2 archive=''
+  archive=$(fm_tasks_axi_toml_value "$root/.tasks.toml" markdown archive 2>/dev/null) || archive=''
+  if [ -z "$archive" ] && [ -n "${HOME:-}" ]; then
+    archive=$(fm_tasks_axi_toml_value "$HOME/.tasks-axi/config.toml" markdown archive 2>/dev/null) || archive=''
+  fi
+  case "$archive" in
+    '') printf '%s/done-archive.md\n' "$data" ;;
+    /*) printf '%s\n' "$archive" ;;
+    *) printf '%s/%s\n' "$root" "$archive" ;;
+  esac
 }
 
 # The same bound fm_backlog_row_show applies to an active-backlog read, read
