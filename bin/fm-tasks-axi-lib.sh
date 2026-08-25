@@ -198,3 +198,85 @@ fm_tasks_axi_backend_available() {
   fm_backlog_backend_manual "$config_dir" && return 1
   fm_tasks_axi_compatible
 }
+
+# fm_tasks_axi_archive_show <data-dir> <id> [flag...]
+# `tasks-axi show <id>` against the ARCHIVE of the backlog <data-dir> owns,
+# for an id that is no longer in the active backlog. tasks-axi prunes a done
+# row out of data/backlog.md into data/done-archive.md once it ages past
+# done_keep, so a resolved-and-archived captain hold is absent from every
+# active-backlog read; without this fallback each completion gate and
+# idempotent replay built on that read reports it as permanently gone.
+#
+# This is the archive HALF of a lookup, never the whole lookup: callers run
+# their own active-backlog read first (bin/fm-captain-hold.sh through
+# fm_backlog_row_show, bin/fm-decision-hold.sh through bin/fm-tasks-axi.sh)
+# and only reach here when that read genuinely found nothing. Keeping the
+# fallback in one function keeps its contract single-owner while each caller
+# keeps the active read - and the read bound - it already had.
+#
+# The archive path is derived from the SAME <data-dir> the caller resolved its
+# active read against, and is never taken as a separate argument: tasks-axi
+# resolves the backlog relative to that directory and knows nothing of
+# FM_DATA_OVERRIDE, so an independently computed archive path could point the
+# archive half of one lookup at a different base than the active half ever
+# checked. Deriving both from one <data-dir> makes that impossible.
+#
+# Scoped to the markdown backend, and inert on every other one: done-archive.md
+# is a markdown-backlog artifact, and a configured adapter (Beads) keeps its
+# own history in its own store, where an archived row is still an ordinary
+# `tasks-axi show`. A non-markdown backend therefore returns 1 with no error
+# and no behavior change, exactly as if the row were absent.
+#
+# tasks-axi's own markdown parser only recognizes "in flight", "queued", and
+# "done"-prefixed section headers; the archive's literal "## Archived <date>"
+# headers parse as inert raw text, so `tasks-axi show --file <archive>` finds
+# nothing even pointed straight at the archive. Normalizing just that header
+# text to "## Done" in a throwaway copy lets tasks-axi's own parser and
+# renderer do the real work, so this never re-implements its markdown grammar.
+#
+# The read is bounded whenever the caller has already sourced
+# bin/fm-timeout-lib.sh (fm-backlog-transition-lib.sh does), so this inherits
+# the caller's existing bound posture rather than introducing an unbounded
+# backend read into a sweep that had bounded every other one.
+fm_tasks_axi_archive_show() {  # <data-dir> <id> [flag...]
+  local data=$1 id=$2 root archive normalized out status
+  shift 2
+  case "$data" in
+    */*)
+      root=${data%/*}
+      [ -n "$root" ] || root=/
+      ;;
+    *) root=. ;;
+  esac
+  [ "$(fm_tasks_axi_backend "$root" 2>/dev/null)" = markdown ] || return 1
+  archive="$data/done-archive.md"
+  [ -f "$archive" ] || return 1
+  normalized=$(umask 077; mktemp "${TMPDIR:-/tmp}/fm-tasks-axi-archive.XXXXXX") || return 1
+  if ! sed 's/^## Archived .*/## Done/' "$archive" > "$normalized" 2>/dev/null; then
+    rm -f -- "$normalized"
+    return 1
+  fi
+  # tasks-axi writes its own "not found" text to stdout rather than stderr, so
+  # the result is captured and only printed once the status says it is a row.
+  if declare -F fm_run_timed >/dev/null 2>&1; then
+    out=$(cd "$root" && fm_run_timed "$(fm_tasks_axi_read_bound)" \
+      tasks-axi show "$id" "$@" --file "$normalized" 2>/dev/null)
+  else
+    out=$(cd "$root" && tasks-axi show "$id" "$@" --file "$normalized" 2>/dev/null)
+  fi
+  status=$?
+  rm -f -- "$normalized"
+  [ "$status" -eq 0 ] || return "$status"
+  printf '%s\n' "$out"
+}
+
+# The same bound fm_backlog_row_show applies to an active-backlog read, read
+# the same way: a non-positive or unparseable value is not a bound, and a
+# padded zero is still zero, so it is compared arithmetically rather than by
+# its digits alone.
+fm_tasks_axi_read_bound() {
+  local secs=${FM_BACKLOG_ROW_TIMEOUT_SECS:-10}
+  case "$secs" in ''|*[!0-9]*) secs=10 ;; esac
+  [ "$secs" -gt 0 ] 2>/dev/null || secs=10
+  printf '%s\n' "$secs"
+}

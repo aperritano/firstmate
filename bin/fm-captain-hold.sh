@@ -364,6 +364,14 @@ require_tasks_axi() {
 # leaves 124 intact rather than collapsing to fail's 1 so a caller running this
 # inside a command substitution can still tell a wedged backend from a
 # genuinely unknown id.
+#
+# An id missing from the ACTIVE backlog is still not absence on its own:
+# tasks-axi prunes a done row into the archive once it ages past done_keep, so
+# a captain hold that was answered and closed leaves data/backlog.md while
+# remaining a real, findable record. The completion gate below reads exactly
+# those resolved holds, so the archive is consulted before absence is
+# reported. Both halves address the one resolved data directory, so the
+# archive read can never land on a different base than the active read used.
 TASK_SHOW_OUTPUT=
 task_show() {  # <id>; sets TASK_SHOW_OUTPUT
   local data status=0 reason
@@ -374,6 +382,10 @@ task_show() {  # <id>; sets TASK_SHOW_OUTPUT
     printf 'fm-captain-hold: %s\n' \
       "${reason:-tasks-axi show $1 exceeded its backlog read bound}" >&2
     exit 124
+  fi
+  if [ "$status" -ne 0 ]; then
+    TASK_SHOW_OUTPUT=$(fm_tasks_axi_archive_show "$data" "$1" --full 2>/dev/null) || return "$status"
+    status=0
   fi
   return "$status"
 }
