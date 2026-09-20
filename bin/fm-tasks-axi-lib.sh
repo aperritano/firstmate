@@ -250,8 +250,19 @@ fm_tasks_axi_backend_available() {
 # bin/fm-timeout-lib.sh (fm-backlog-transition-lib.sh does), so this inherits
 # the caller's existing bound posture rather than introducing an unbounded
 # backend read into a sweep that had bounded every other one.
+#
+# Every active-backlog miss reaches here, and the sweeps that miss most are the
+# ones this fallback must not slow down: fm-captain-hold.sh's resolver tries an
+# exact id and then a legacy one per key, and the reconcile and answer scans
+# repeat that per item. So a copy of the whole archive plus a backend spawn is
+# spent only once the id literally appears in the archive, which an archived row
+# always does. The grep is a COST guard and never the authority on whether the
+# hold exists: a candidate that passes it is still answered by tasks-axi's own
+# parser and renderer, and a grep that could not run at all (any status but a
+# clean "no match") falls through to the full read rather than inventing an
+# absence the archive was never consulted for.
 fm_tasks_axi_archive_show() {  # <data-dir> <id> [flag...]
-  local data=$1 id=$2 root archive normalized out status
+  local data=$1 id=$2 root archive normalized out status precheck=0
   shift 2
   case "$data" in
     */*)
@@ -263,6 +274,9 @@ fm_tasks_axi_archive_show() {  # <data-dir> <id> [flag...]
   [ "$(fm_tasks_axi_backend "$root" 2>/dev/null)" = markdown ] || return 1
   archive=$(fm_tasks_axi_markdown_archive "$root" "$data")
   [ -f "$archive" ] || return 1
+  [ -s "$archive" ] || return 1
+  LC_ALL=C grep -qF -- "$id" "$archive" 2>/dev/null || precheck=$?
+  [ "$precheck" -ne 1 ] || return 1
   normalized=$(umask 077; mktemp "${TMPDIR:-/tmp}/fm-tasks-axi-archive.XXXXXX") || return 1
   if ! sed 's/^## Archived .*/## Done/' "$archive" > "$normalized" 2>/dev/null; then
     rm -f -- "$normalized"
@@ -306,10 +320,12 @@ fm_tasks_axi_markdown_archive() {  # <backlog-root> <data-dir>
   esac
 }
 
-# The same bound fm_backlog_row_show applies to an active-backlog read, read
-# the same way: a non-positive or unparseable value is not a bound, and a
-# padded zero is still zero, so it is compared arithmetically rather than by
-# its digits alone.
+# The one owner of the backlog read bound, for the active-backlog read
+# (fm_backlog_row_show) and the archive read above alike. A non-positive or
+# unparseable value is not a bound at all (bin/fm-timeout-lib.sh), and a padded
+# zero such as 00 is still zero, so the digits test alone would let the very
+# unbounded read the bound exists to prevent back in: compare arithmetically,
+# tolerating a value too large for the shell to compare at all.
 fm_tasks_axi_read_bound() {
   local secs=${FM_BACKLOG_ROW_TIMEOUT_SECS:-10}
   case "$secs" in ''|*[!0-9]*) secs=10 ;; esac
