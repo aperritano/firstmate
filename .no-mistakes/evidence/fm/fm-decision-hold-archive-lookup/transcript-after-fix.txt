@@ -1,0 +1,43 @@
+=== firstmate tree under test: /Users/aperritano/.no-mistakes/worktrees/2c268f44ad3c/01M2YC1V836Q051AGD05M0404F ===
+
+$ fm-decision-hold.sh hold xmarks-style-analysis owner-model --title ... --reason ...
+xmarks-style-analysis-decision-owner-model
+
+$ fm-decision-hold.sh resolve xmarks-style-analysis owner-model --decision-file owner-model.txt --routed-to xmarks-style-work
+answered: xmarks-style-analysis-decision-owner-model
+resolved: xmarks-style-analysis-decision-owner-model -> xmarks-style-work
+
+$ tasks-axi prune --keep 0 --state done   # done_keep ages the resolved hold out
+ok: prune done -> archived 1 (kept 0)
+help[1]:
+  - Run `tasks-axi list --state done` to see retained Done items
+
+$ tasks-axi show xmarks-style-analysis-decision-owner-model --full   # the active backlog no longer has it
+error: "Task \"xmarks-style-analysis-decision-owner-model\" not found in this backlog"
+code: NOT_FOUND
+help[1]: Run `tasks-axi list` to see existing tasks
+[exit 1]
+
+$ grep -c xmarks-style-analysis-decision-owner-model data/done-archive.md   # it is in the archive, a real record
+1
+
+--- the two lookups that must still find it ---
+
+$ fm-captain-hold.sh verify xmarks-style-analysis   # the completion gate
+verified: xmarks-style-analysis captain-call inventory
+[exit 0]
+
+$ fm-decision-hold.sh resolve xmarks-style-analysis owner-model ...   # idempotent replay of the same resolution
+answered: xmarks-style-analysis-decision-owner-model
+resolved: xmarks-style-analysis-decision-owner-model -> xmarks-style-work
+[exit 0]
+
+$ tasks-axi show xmarks-style-work --full   # the routed work is released
+task:
+  id: xmarks-style-work
+  title: Apply the chosen owner model
+  state: queued
+  blocked: no
+  blocked_by: none
+  held: no
+  hold_reason: "-"
