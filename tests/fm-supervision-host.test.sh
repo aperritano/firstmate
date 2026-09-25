@@ -696,6 +696,45 @@ SH
   pass "host: dialog a turn never completed with its report (a park boundary, a stopped turn, no report) reaches the next turn"
 }
 
+# The attended engine never judges without the captain's words: a mirror that
+# cannot be read, or that holds an entry that does not parse, hands the wake to
+# main before any engine turn and leaves the mirror cursor where it was.
+test_attended_wake_with_an_unreadable_mirror_reaches_main() {
+  local home mirror cursor
+  home=$(make_home attended-bad-mirror attended)
+  mirror="$home/state/.host-mirror.jsonl"
+  printf '{"hook_event_name":"UserPromptSubmit","prompt_id":"p1","prompt":"keep the export worker on low effort"}' > "$home/mirror-seed.1"
+  start_session "$home"
+  park_again "$home"
+  append_status "$home" 'first'
+  wait_until 250 handled_at_least "$home" 1 || fail "bad mirror: the first wake was not handled: $(cat "$home/state/.supervision-host.log")"
+  cursor=$(cat "$home/state/.host-mirror-cursor") || fail "fixture: the handled turn committed no mirror cursor"
+
+  chmod 000 "$mirror"
+  append_status "$home" 'unreadable mirror'
+  wait_until 250 host_exited "$home" || fail "bad mirror: an unreadable mirror did not hand the wake to main"
+  chmod 644 "$mirror"
+  assert_re '^signal: .*demo.status' "$home/host.out" "the handed-back close must carry the watcher's reason line"
+  assert_re '^supervision-host: the supervision session could not take this wake: the dialog mirror could not be read; this wake is yours$' \
+    "$home/host.out" "an unreadable mirror must hand the wake to main with its reason"
+  [ "$(engine_calls "$home")" -eq 1 ] || fail "bad mirror: the engine ran without a readable mirror"
+  [ "$(cat "$home/state/.host-mirror-cursor")" = "$cursor" ] || fail "an unreadable mirror moved the cursor"
+  [ ! -e "$home/state/.host-mirror-cursor.next" ] || fail "an unreadable mirror staged a cursor"
+  main_drain_and_ack "$home"
+
+  printf '{"seq":' >> "$mirror"
+  printf '\n' >> "$mirror"
+  park_again "$home"
+  append_status "$home" 'malformed mirror'
+  wait_until 250 host_exited "$home" || fail "bad mirror: a malformed mirror entry did not hand the wake to main"
+  assert_re '^supervision-host: the supervision session could not take this wake: the dialog mirror could not be read; this wake is yours$' \
+    "$home/host.out" "a malformed mirror entry must hand the wake to main with its reason"
+  [ "$(engine_calls "$home")" -eq 1 ] || fail "bad mirror: the engine ran past a malformed mirror entry"
+  [ "$(cat "$home/state/.host-mirror-cursor")" = "$cursor" ] || fail "a malformed mirror entry moved the cursor"
+  [ ! -e "$home/state/.host-mirror-cursor.next" ] || fail "a malformed mirror entry staged a cursor past it"
+  pass "host: an attended wake whose mirror cannot be read or holds a malformed entry reaches main before any engine turn, and the cursor stays put"
+}
+
 test_latch_trips_after_two_engine_errors_then_probes_and_recovers() {
   local home
   home=$(make_home attended-latch attended)
@@ -1299,6 +1338,7 @@ test_attended_main_only_close_passes_straight_to_main
 test_primary_without_a_verified_mirror_runs_away_only
 test_attended_wake_carries_the_dialog_mirror
 test_undelivered_dialog_is_fed_again_on_the_next_turn
+test_attended_wake_with_an_unreadable_mirror_reaches_main
 test_latch_trips_after_two_engine_errors_then_probes_and_recovers
 test_latch_hands_away_wakes_back_with_a_line
 test_away_wake_is_handled_on_the_engine_and_never_reaches_main
