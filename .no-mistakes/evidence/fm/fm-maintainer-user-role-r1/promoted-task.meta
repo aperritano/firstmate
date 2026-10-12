@@ -1,0 +1,8 @@
+window=fm-promote
+project=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent
+worktree=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent
+kind=ship
+mode=direct-PR
+yolo=off
+branch=fm/promote
+upstream_consent=github.com/kunchenguid/firstmate

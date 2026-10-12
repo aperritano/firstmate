@@ -1,0 +1,203 @@
+/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home
+
+=== Default user and no inferred authority ===
+
+$ bin/fm-role.sh report
+fm-role: user (default)
+exit=0 (expected 0)
+
+$ bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC
+refused: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+exit=1 (expected 1)
+
+$ bin/fm-brief.sh denied lab --mode direct-PR --project /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent
+error: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+error: to let this home publish to github.com/kunchenguid/firstmate, write 'maintainer github.com/kunchenguid/firstmate' into /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/config/firstmate-role (docs/configuration.md "Firstmate role"), or pass --upstream-consent github.com/kunchenguid/firstmate for this one task with the captain's explicit approval
+exit=1 (expected 1)
+
+$ bin/fm-brief.sh private lab --mode local-only --project /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent
+scaffolded: /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/data/private/brief.md (ship, mode=local-only; replace {TASK} and {FIRSTMATE_SPEC})
+exit=0 (expected 0)
+
+=== Ordinary project publishing contract remains available ===
+
+$ bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/own
+not a self-repository task
+exit=2 (expected 2)
+
+$ bin/fm-brief.sh own-task own --mode direct-PR --project /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/own
+scaffolded: /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/data/own-task/brief.md (ship, mode=direct-PR; replace {TASK} and {FIRSTMATE_SPEC})
+exit=0 (expected 0)
+
+=== Scoped maintainer and one-task consent ===
+
+$ bin/fm-role.sh report
+fm-role: maintainer github.com/kunchenguid/firstmate (local)
+exit=0 (expected 0)
+
+$ bin/fm-brief.sh maint lab --mode direct-PR --project /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent
+scaffolded: /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/data/maint/brief.md (ship, mode=direct-PR; replace {TASK} and {FIRSTMATE_SPEC})
+exit=0 (expected 0)
+
+$ bin/fm-brief.sh consent lab --mode direct-PR --project /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent --upstream-consent github.com/kunchenguid/firstmate
+scaffolded: /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/data/consent/brief.md (ship, mode=direct-PR; replace {TASK} and {FIRSTMATE_SPEC})
+exit=0 (expected 0)
+
+$ bin/fm-brief.sh wrong lab --mode direct-PR --project /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent --upstream-consent github.com/example/other
+error: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+error: to let this home publish to github.com/kunchenguid/firstmate, write 'maintainer github.com/kunchenguid/firstmate' into /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/config/firstmate-role (docs/configuration.md "Firstmate role"), or pass --upstream-consent github.com/kunchenguid/firstmate for this one task with the captain's explicit approval
+exit=1 (expected 1)
+
+$ bin/fm-brief.sh next-task lab --mode direct-PR --project /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent
+error: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+error: to let this home publish to github.com/kunchenguid/firstmate, write 'maintainer github.com/kunchenguid/firstmate' into /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/config/firstmate-role (docs/configuration.md "Firstmate role"), or pass --upstream-consent github.com/kunchenguid/firstmate for this one task with the captain's explicit approval
+exit=1 (expected 1)
+
+$ bin/fm-role.sh report
+fm-role: user (default)
+exit=0 (expected 0)
+
+=== Fork-origin code root still gates the parent clone ===
+
+$ env FM_ROOT_OVERRIDE=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/fork bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent
+refused: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+exit=1 (expected 1)
+
+$ env FM_ROOT_OVERRIDE=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/fork bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent
+refused: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+exit=1 (expected 1)
+
+$ env FM_ROOT_OVERRIDE=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/fork bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent upstream-consent github.com/kunchenguid/firstmate
+authorized: task consent for github.com/kunchenguid/firstmate
+exit=0 (expected 0)
+
+=== Unknown target and shallow lineage fail closed ===
+
+$ bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent upstream-consent github.com/kunchenguid/firstmate
+refused: this task targets firstmate's own repository but no publication target can be determined (no upstream, github, or origin remote on /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent)
+exit=1 (expected 1)
+Note: switching to '02fce99bff6740ef3656297cca03acfc1cbb8524'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+
+$ bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/shallow upstream-consent github.com/kunchenguid/firstmate
+refused: cannot determine whether /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/shallow shares firstmate's history (the code root /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC has no readable history, or a shallow clone shares no root commit); fetch full history (git fetch --unshallow) before dispatching publishing work
+exit=1 (expected 1)
+
+=== Supported secondmate inheritance, rejected-primary revocation, and drift ===
+
+$ env FM_HOME=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/second bin/fm-role.sh report
+fm-role: maintainer github.com/kunchenguid/firstmate (inherited)
+exit=0 (expected 0)
+
+$ env FM_HOME=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/second bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC
+authorized: maintainer scope github.com/kunchenguid/firstmate
+exit=0 (expected 0)
+
+$ env FM_HOME=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/second bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC
+refused: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+exit=1 (expected 1)
+
+$ bin/fm-role.sh report
+fm-role: user (local) - malformed role file: role file must not be a symlink
+exit=0 (expected 0)
+
+$ bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC
+refused: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+exit=1 (expected 1)
+
+$ env FM_HOME=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/second bin/fm-role.sh report
+fm-role: user (inherited)
+exit=0 (expected 0)
+
+$ env FM_HOME=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/second bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC
+refused: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+exit=1 (expected 1)
+
+$ bin/fm-role.sh report
+fm-role: user (local) - malformed role file: role file must hold exactly one directive line
+exit=0 (expected 0)
+
+$ bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC
+refused: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+exit=1 (expected 1)
+
+$ env FM_HOME=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/second bin/fm-role.sh report
+fm-role: user (default)
+exit=0 (expected 0)
+
+$ env FM_HOME=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/second bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC
+refused: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+exit=1 (expected 1)
+
+$ bin/fm-role.sh report
+fm-role: user (local) - malformed role file: the maintainer role requires exactly one repository scope
+exit=0 (expected 0)
+
+$ bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC
+refused: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+exit=1 (expected 1)
+
+$ env FM_HOME=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/second bin/fm-role.sh report
+fm-role: user (default)
+exit=0 (expected 0)
+
+$ env FM_HOME=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/second bin/fm-role.sh check /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC
+refused: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+exit=1 (expected 1)
+
+=== Real spawn refusal writes no task metadata ===
+
+$ bin/fm-spawn.sh consent /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/parent claude --mode direct-PR --yolo off
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home
+error: upstream-consent mismatch for consent: /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/data/consent/launch-brief.md records upstream-consent=github.com/kunchenguid/firstmate but this spawn passed none; correct the flag or re-scaffold the brief so the worker's contract and the task record agree
+exit=1 (expected 1)
+
+$ bin/fm-spawn.sh own-task /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC claude --mode direct-PR --yolo off
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home
+error: spawn refused for own-task: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+error: to let this home publish to github.com/kunchenguid/firstmate, write 'maintainer github.com/kunchenguid/firstmate' into /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/config/firstmate-role (docs/configuration.md "Firstmate role"), or pass --upstream-consent github.com/kunchenguid/firstmate for this one task with the captain's explicit approval
+exit=1 (expected 1)
+
+=== Real promotion refusal preserves scout; consent emits ship contract ===
+
+$ bin/fm-brief.sh promote lab --scout
+scaffolded: /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/data/promote/brief.md (scout; replace {TASK} and {FIRSTMATE_SPEC})
+exit=0 (expected 0)
+
+$ bin/fm-promote.sh promote --mode direct-PR --yolo off
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+warn: no registry at /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/data/projects.md; defaulting parent to no-mistakes off
+error: promotion refused for promote: this home runs as firstmate user/operator and holds no publication authority for github.com/kunchenguid/firstmate
+error: to let this home publish to github.com/kunchenguid/firstmate, write 'maintainer github.com/kunchenguid/firstmate' into /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/config/firstmate-role (docs/configuration.md "Firstmate role"), or pass --upstream-consent github.com/kunchenguid/firstmate for this one task with the captain's explicit approval
+exit=1 (expected 1)
+
+$ bin/fm-promote.sh promote --mode direct-PR --yolo off --upstream-consent github.com/kunchenguid/firstmate
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+warn: no registry at /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/data/projects.md; defaulting parent to no-mistakes off
+promoted promote to ship mode=direct-PR yolo=off (teardown protection restored)
+wrote ship instructions for mode=direct-PR: /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/data/promote/ship-instructions.md
+next: FM_HOME=/Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home bin/fm-send.sh fm-promote "$(cat /Users/kunchen/.no-mistakes/worktrees/52b07e9083e7/01M4RSVY8DHRNY3H4ETBM3QEVC/.test-tmp/live.iCWsfi/home/data/promote/ship-instructions.md)"
+exit=0 (expected 0)
+
+All disposable homes and Git repositories removed by EXIT trap.
