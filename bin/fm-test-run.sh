@@ -382,6 +382,7 @@ family_for_basename() {
     fm-calm-claude-mod-plugin.test.sh|fm-calm-claude-mod-live-e2e.test.sh|\
     fm-calm-pi-queue-retention-live-e2e.test.sh|\
     fm-herdr-submit-confirm-live-e2e.test.sh|\
+    fm-backend-rex-composer-live-e2e.test.sh|\
     fm-watch-wedge-cap-live.test.sh)
       printf '%s\n' live-harness-optin
       ;;
@@ -419,7 +420,7 @@ family_for_basename() {
     fm-backend-paseo.test.sh|fm-backend-paseo-smoke.test.sh)
       printf '%s\n' paseo
       ;;
-    fm-backend-rex.test.sh|fm-backend-rex-smoke.test.sh)
+    fm-backend-rex.test.sh|fm-backend-rex-smoke.test.sh|fm-backend-rex-eventwait-smoke.test.sh)
       printf '%s\n' rex
       ;;
     fm-backend-zellij.test.sh|fm-backend-zellij-smoke.test.sh)
@@ -1482,7 +1483,7 @@ families_for_changed_path() {
       printf '%s\n' paseo
       printf '%s\n' backend-dispatch
       ;;
-    bin/backends/rex*)
+    bin/backends/rex*|tests/rex-test-safety.sh)
       printf '%s\n' rex
       printf '%s\n' backend-dispatch
       ;;
