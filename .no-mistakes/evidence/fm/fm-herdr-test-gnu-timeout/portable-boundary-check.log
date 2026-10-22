@@ -1,0 +1,6 @@
+Mechanism: perl
+Piped invalid-target probe: output=unknown status=0
+Hung command: status=124 elapsed=2s (expected 124, under 5s)
+Mechanism: bash
+Piped invalid-target probe: output=unknown status=0
+Hung command: status=124 elapsed=1s (expected 124, under 5s)
