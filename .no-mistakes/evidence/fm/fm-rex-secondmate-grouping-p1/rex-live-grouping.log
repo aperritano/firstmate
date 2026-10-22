@@ -1,0 +1,59 @@
+{"pid":26728,"instance_id":"509fbfcb-b66b-41c5-8a95-d45036ef0a22","host_id":"16c5e5bb-d379-40a8-865f-2af1122f8f89","started_at":"2026-10-22T19:52:58.066544Z","exit_empty":false,"session_count":0,"tailscale":{"state":"disabled","allow_tailnet_members":false},"api_revision":5,"config":{"generation":1,"hash":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}}
+NEW SECONDMATE VIEW
+{"revision":2,"session_id":"session:01a1652c-8360-707d-8b58-92b8bf32cf94","label":"2ndmate-mate-38cc5c72","active_window_id":"window:01a1652c-836b-7e34-bd94-7f903eca58e1","windows":[{"window_id":"window:01a1652c-836b-7e34-bd94-7f903eca58e1","label":"fm-mate","focused_block_id":"block:01a1652c-8360-70d6-8136-72305f4977ff","layers":[{"layer_id":"layer:01a1652c-836b-7e38-aabd-7d48b3c796ab","kind":"tiled","bounds":[0,0,1,1],"layout":{"rect":[0,0,1,1],"block_id":"block:01a1652c-8360-70d6-8136-72305f4977ff"},"blocks":[{"block_id":"block:01a1652c-8360-70d6-8136-72305f4977ff","label":"fm-2ndmate-mate-38cc5c72-mate","creator_name":"com.superlogical.terminal","flavor":"com.superlogical.terminal.shell","host_id":"16c5e5bb-d379-40a8-865f-2af1122f8f89","owner":"client:01a1652c-835f-7a48-b505-94524fe61876"}]}]}]}
+SESSION ORDER
+{
+  "sessions": [
+    {
+      "session_id": "session:01a1652c-82ef-7dfe-a185-077f26a5c6bd",
+      "label": "lab-parent"
+    },
+    {
+      "session_id": "session:01a1652c-8360-707d-8b58-92b8bf32cf94",
+      "label": "2ndmate-mate-38cc5c72"
+    },
+    {
+      "session_id": "session:01a1652c-830a-73a5-9410-69fe367dc668",
+      "label": "lab-unrelated"
+    }
+  ]
+}
+PROVEN: child-home hash; new secondmate immediately follows parent
+RESPAWN WITH CREW VIEW
+{"revision":10,"session_id":"session:01a1652c-8360-707d-8b58-92b8bf32cf94","label":"2ndmate-mate-38cc5c72","active_window_id":"window:01a1652c-84c5-7c7f-8741-ac3d2d494cab","windows":[{"window_id":"window:01a1652c-8596-7785-ac83-23d99fdacdee","label":"fm-mate","focused_block_id":"block:01a1652c-858b-79a8-aa8a-19fa8d1a9931","layers":[{"layer_id":"layer:01a1652c-8596-778d-816c-08eeadcf2cc1","kind":"tiled","bounds":[0,0,1,1],"layout":{"rect":[0,0,1,1],"block_id":"block:01a1652c-858b-79a8-aa8a-19fa8d1a9931"},"blocks":[{"block_id":"block:01a1652c-858b-79a8-aa8a-19fa8d1a9931","label":"fm-2ndmate-mate-38cc5c72-mate","creator_name":"com.superlogical.terminal","flavor":"com.superlogical.terminal.shell","host_id":"16c5e5bb-d379-40a8-865f-2af1122f8f89"}]}]},{"window_id":"window:01a1652c-84c5-7c7f-8741-ac3d2d494cab","label":"fm-crew","focused_block_id":"block:01a1652c-84b9-70e6-9e42-6b0287fa16b9","layers":[{"layer_id":"layer:01a1652c-84c5-7c87-94e8-aa995110b23a","kind":"tiled","bounds":[0,0,1,1],"layout":{"rect":[0,0,1,1],"block_id":"block:01a1652c-84b9-70e6-9e42-6b0287fa16b9"},"blocks":[{"block_id":"block:01a1652c-84b9-70e6-9e42-6b0287fa16b9","label":"fm-2ndmate-mate-38cc5c72-crew","creator_name":"com.superlogical.terminal","flavor":"com.superlogical.terminal.shell","host_id":"16c5e5bb-d379-40a8-865f-2af1122f8f89"}]}]}]}
+PROVEN: respawn first, crew preserved, nonempty retirement refused
+EMPTY VIEW FROM REAL REX
+{"revision":12,"session_id":"session:01a1652c-8360-707d-8b58-92b8bf32cf94","label":"2ndmate-mate-38cc5c72"}
+ADOPTED EMPTY SESSION
+{"revision":15,"session_id":"session:01a1652c-8360-707d-8b58-92b8bf32cf94","label":"2ndmate-mate-38cc5c72","active_window_id":"window:01a1652c-872d-7dbb-98eb-df7f37c29127","windows":[{"window_id":"window:01a1652c-872d-7dbb-98eb-df7f37c29127","label":"fm-mate","focused_block_id":"block:01a1652c-8719-70de-8871-746fca69e2ed","layers":[{"layer_id":"layer:01a1652c-872d-7dc7-8282-57dcaf60fa15","kind":"tiled","bounds":[0,0,1,1],"layout":{"rect":[0,0,1,1],"block_id":"block:01a1652c-8719-70de-8871-746fca69e2ed"},"blocks":[{"block_id":"block:01a1652c-8719-70de-8871-746fca69e2ed","label":"fm-2ndmate-mate-38cc5c72-mate","creator_name":"com.superlogical.terminal","flavor":"com.superlogical.terminal.shell","host_id":"16c5e5bb-d379-40a8-865f-2af1122f8f89"}]}]}]}
+PROVEN: session with omitted windows adopted and crewless mate relaunched
+DECOY MATCHING EMPTY SESSION SURVIVES
+{"revision":2,"session_id":"session:01a1652c-87b4-72b3-b275-9e9c909eb503","label":"2ndmate-mate-38cc5c72"}
+PROVEN: only exact recorded empty session retired, parent/unrelated/duplicate-label session preserved
+RENAMED EMPTY SESSION PRESERVED
+{"revision":3,"session_id":"session:01a1652c-87b4-72b3-b275-9e9c909eb503","label":"captain-renamed"}
+warning: could not place Rex secondmate session session:01a1652c-8d19-7ea2-a77a-043887599fec after its launcher session
+ORDER FAILURE STILL CREATED TASK
+{"revision":2,"session_id":"session:01a1652c-8d19-7ea2-a77a-043887599fec","label":"firstmate-a659a238","active_window_id":"window:01a1652c-8d24-7207-ac94-f2f38a90cd44","windows":[{"window_id":"window:01a1652c-8d24-7207-ac94-f2f38a90cd44","label":"fm-order-failure","focused_block_id":"block:01a1652c-8d19-7efb-8f3d-6614e11cf853","layers":[{"layer_id":"layer:01a1652c-8d24-720f-8db0-f362366cda54","kind":"tiled","bounds":[0,0,1,1],"layout":{"rect":[0,0,1,1],"block_id":"block:01a1652c-8d19-7efb-8f3d-6614e11cf853"},"blocks":[{"block_id":"block:01a1652c-8d19-7efb-8f3d-6614e11cf853","label":"fm-firstmate-a659a238-order-failure","creator_name":"com.superlogical.terminal","flavor":"com.superlogical.terminal.shell","host_id":"16c5e5bb-d379-40a8-865f-2af1122f8f89","owner":"client:01a1652c-8d19-7933-a4f9-0c00ca735c08"}]}]}]}
+PROVEN: session ordering failure is non-fatal
+warning: could not move the respawned Rex secondmate tab window:01a1652c-8f8e-7ccd-adac-fa6713785130 to the first position
+WINDOW ORDER REFUSAL STILL CREATED TASK
+{"revision":7,"session_id":"session:01a1652c-87b4-72b3-b275-9e9c909eb503","label":"2ndmate-mate-38cc5c72","active_window_id":"window:01a1652c-8f8e-7ccd-adac-fa6713785130","windows":[{"window_id":"window:01a1652c-8f8e-7ccd-adac-fa6713785130","label":"fm-window-order-failure","focused_block_id":"block:01a1652c-8f84-70ee-99eb-21bba6ee1742","layers":[{"layer_id":"layer:01a1652c-8f8e-7cd5-81eb-3a2fd314ea34","kind":"tiled","bounds":[0,0,1,1],"layout":{"rect":[0,0,1,1],"block_id":"block:01a1652c-8f84-70ee-99eb-21bba6ee1742"},"blocks":[{"block_id":"block:01a1652c-8f84-70ee-99eb-21bba6ee1742","label":"fm-2ndmate-mate-38cc5c72-window-order-failure","creator_name":"com.superlogical.terminal","flavor":"com.superlogical.terminal.shell","host_id":"16c5e5bb-d379-40a8-865f-2af1122f8f89"}]}]}]}
+PROVEN: window ordering failure is non-fatal; task remains routable and can retire
+ORDINARY SEPARATE HOME VIEW
+{"revision":2,"session_id":"session:01a1652c-90ca-775e-8b75-b3f33241124e","label":"firstmate-a023676c","active_window_id":"window:01a1652c-90d4-79c4-abdf-a41df7b1371f","windows":[{"window_id":"window:01a1652c-90d4-79c4-abdf-a41df7b1371f","label":"fm-ordinary","focused_block_id":"block:01a1652c-90ca-77b0-8f1f-eb78bf03b6ad","layers":[{"layer_id":"layer:01a1652c-90d4-79cb-852a-7ab3c4ec65b5","kind":"tiled","bounds":[0,0,1,1],"layout":{"rect":[0,0,1,1],"block_id":"block:01a1652c-90ca-77b0-8f1f-eb78bf03b6ad"},"blocks":[{"block_id":"block:01a1652c-90ca-77b0-8f1f-eb78bf03b6ad","label":"fm-firstmate-a023676c-ordinary","creator_name":"com.superlogical.terminal","flavor":"com.superlogical.terminal.shell","host_id":"16c5e5bb-d379-40a8-865f-2af1122f8f89","owner":"client:01a1652c-90ca-7226-b143-3d8d5187e155"}]}]}]}
+PROVEN: ordinary separate-home adapter creation and retirement retain code-root identity
+FINAL PRIVATE INVENTORY
+{
+  "sessions": [
+    {
+      "session_id": "session:01a1652c-82ef-7dfe-a185-077f26a5c6bd",
+      "label": "lab-parent"
+    },
+    {
+      "session_id": "session:01a1652c-830a-73a5-9410-69fe367dc668",
+      "label": "lab-unrelated"
+    }
+  ]
+}
+ALL LIVE ADAPTER SCENARIOS COMPLETED
