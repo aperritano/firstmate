@@ -1,0 +1,9 @@
+Disposable sentinel endpoint: unix:///private/tmp/fm-rex-test.ia491a/rex.sock
+Sentinel session: session:01a164ad-38e3-7163-9fb0-881f5516548b
+Nested endpoint: unix:///private/tmp/fm-rex-test.83htu5/rex.sock
+session:01a164ad-75c8-78b2-bb98-0dbbec7b1074 block:01a164ad-75c8-7a25-9c7e-d5f1677e28c6
+Nested restart: no persisted sessions
+PASS: nested helper ignored inherited REX_SERVER; sentinel remained byte-identical and reachable after private stop/restart
+fm-rex-test guard: refused kill session:01a164ad-9cc6-7bb4-874d-3997448f6fba
+PASS: guard refused kill of unowned session (97); real session still exists
+PASS: cleanup removed owned state and terminated the private server

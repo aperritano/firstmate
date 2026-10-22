@@ -1,0 +1,4 @@
+Disposable sentinel endpoint: unix:///private/tmp/fm-rex-test.Eadj7E/rex.sock
+Sentinel session: session:01a164aa-fccf-78c6-9970-d421533988b4
+ok - real rex: created the test's own session session:01a164ab-6775-7222-a33f-afa1756b9ecd
+ok - real rex: a Rex-hosted launcher gets a focus-safe 200x50 tab in its own session; duplicates are refused

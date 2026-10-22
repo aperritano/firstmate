@@ -1,0 +1,4 @@
+Real server during readiness: /Users/kunchen/.local/bin/rex --autostart=false server run --listen unix:///private/tmp/fm-rex-test.7Kbquq/rex.sock --state-dir /private/tmp/fm-rex-test.7Kbquq/server-state --config /private/tmp/fm-rex-test.7Kbquq/rex-config.lua --exit-empty
+Interrupted suite exit: -15
+PASS: readiness interruption terminated owned real server
+PASS: readiness interruption removed owned scratch directory

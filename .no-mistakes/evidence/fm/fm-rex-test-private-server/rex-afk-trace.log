@@ -1,0 +1,845 @@
++ set -u
++++ dirname tests/.rex-afk-targeted.sh
+++ cd tests/..
+++ pwd
++ ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++ LAUNCH=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-afk-launch.sh
++ START=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-afk-start.sh
++ CONTRACT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-afk-contract.sh
++ unset PI_CODING_AGENT FM_PI_HARNESS CURSOR_AGENT CURSOR_INVOKED_AS GEMINI_CLI ATLASSIAN_AGENT_TYPE ROVODEV_CLI
++ export CLAUDECODE=1 FM_TEST_HARNESS=claude FM_TEST_SEAM=1
++ CLAUDECODE=1
++ FM_TEST_HARNESS=claude
++ FM_TEST_SEAM=1
+++ mktemp -d /tmp/fm-afk-off-config.XXXXXX
++ OFF_CONFIG=/tmp/fm-afk-off-config.q3iK89
++ :
++ export FM_CONFIG_OVERRIDE=/tmp/fm-afk-off-config.q3iK89
++ FM_CONFIG_OVERRIDE=/tmp/fm-afk-off-config.q3iK89
++ FAILED=0
+++ mktemp /tmp/fm-afk-sleeper.XXXXXX
++ SLEEPER=/tmp/fm-afk-sleeper.AWEnfa
++ printf '#!/usr/bin/env bash\nexec sleep 600\n'
++ chmod +x /tmp/fm-afk-sleeper.AWEnfa
++ TRACK_TMUX_SESSIONS=
++ trap GLOBAL_CLEANUP EXIT
++ QUIET_MIRROR='{"seq":1,"key":"k","tag":"captain","text":"watch the fleet"}'
++ e2e_rex
++ local home_tmp out cap_sid cap_bid cap_target before during after rec_backend rec_target rec_sid label rc
++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/tests/rex-test-safety.sh
+++ set -u
+++++ dirname /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/tests/rex-test-safety.sh
++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/tests/..
++++ pwd
+++ REX_TEST_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
+++ REX_TEST_WORK=
+++ REX_TEST_REAL=
+++ REX_TEST_BEFORE=
+++ REX_TEST_CLEANED=
+++ REX_TEST_SERVER_PID=
+++ REX_TEST_ENDPOINT=
++ rex_test_prepare
++ unset REX_SESSION REX_BLOCK REX_SERVER
++ export TERM_PROGRAM=fm-test
++ TERM_PROGRAM=fm-test
++ command -v jq
++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
+++ FM_BACKEND_SCRIPT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
+++++ dirname /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
++++ pwd
+++ FM_BACKEND_LIB_DIR=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
+++ unset FM_BACKEND_SCRIPT
++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/..
++++ pwd
+++ FM_BACKEND_DEFAULT_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
+++ FM_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
+++ FM_HOME=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
+++ FM_BACKEND_CONFIG_DIR=/tmp/fm-afk-off-config.q3iK89
+++ FM_BACKEND_KNOWN='tmux herdr zellij orca cmux paseo rex'
+++ FM_BACKEND_SPAWN='tmux herdr zellij orca cmux paseo rex'
+++ FM_BACKEND_CMUX_BUNDLE_ID=com.cmuxterm.app
+++ FM_BACKEND_VISIBLE_CAPTURE='tmux herdr zellij rex'
++ fm_backend_source rex
++ local name=rex adapter rel sibling
++ fm_backend_validate rex
++ local name=rex
++ fm_backend_is_known rex
++ fm_backend_list_contains 'tmux herdr zellij orca cmux paseo rex' rex
++ local 'list=tmux herdr zellij orca cmux paseo rex' name=rex
++ case "$name" in
++ case " $list " in
++ return 0
++ return 0
++ adapter=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
++ case "$name" in
++ set -- fm-backend-hometag-lib.sh fm-composer-lib.sh fm-agent-process-lib.sh fm-session-lock-lib.sh fm-gemini-lib.sh
++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
++ for rel in "$@"
++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
++ for rel in "$@"
++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
++ for rel in "$@"
++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
++ for rel in "$@"
++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
++ for rel in "$@"
++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
++ case "$name" in
++ '[' -z '' ']'
++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++++ dirname /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/../..
++++ pwd
+++ FM_BACKEND_REX_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
+++ FM_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
+++ FM_HOME=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
+++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
++++ FM_BACKEND_HOMETAG_SECONDMATE_MARKER=.fm-secondmate-home
+++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
++++ FM_COMPOSER_UNICODE_SPACES=()
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0302\0205'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0302\0240'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0341\0232\0200'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0200'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0201'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0202'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0203'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0204'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0205'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0206'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0207'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0210'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0211'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0212'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0250'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0251'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0200\0257'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0342\0201\0237'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ for _fm_composer_space_octal in '\0302\0205' '\0302\0240' '\0341\0232\0200' '\0342\0200\0200' '\0342\0200\0201' '\0342\0200\0202' '\0342\0200\0203' '\0342\0200\0204' '\0342\0200\0205' '\0342\0200\0206' '\0342\0200\0207' '\0342\0200\0210' '\0342\0200\0211' '\0342\0200\0212' '\0342\0200\0250' '\0342\0200\0251' '\0342\0200\0257' '\0342\0201\0237' '\0343\0200\0200'
++++ printf -v _fm_composer_space_utf8 %b '\0343\0200\0200'
++++ FM_COMPOSER_UNICODE_SPACES+=("$_fm_composer_space_utf8")
++++ unset -v _fm_composer_space_octal _fm_composer_space_utf8
++++ FM_DELIVERY_BUSY_REGEX_DEFAULT='esc (to )?interrupt|Working(\.\.\.|…)|Ctrl\+c:cancel|ctrl\+c to stop|esc[[:space:]]+to[[:space:]]+cancel|esc twice to interrupt|^[[:space:]]*❭ Guide Devin while it works$'
++++ FM_DELIVERY_CLAUDE_BUSY_REGEX_DEFAULT='esc to interrupt|…[[:space:]]+\([0-9]+[smh]'
++++ FM_DELIVERY_DEVIN_BUSY_REGEX_DEFAULT='esc twice to interrupt|^[[:space:]]*❭ Guide Devin while it works$'
++++ FM_DELIVERY_COMMANDCODE_BUSY_REGEX_DEFAULT='esc to interrupt|•[[:space:]]+[0-9]+[smh]([[:space:]]+[0-9]+[smh])*[[:space:]]+•'
++++ FM_DELIVERY_CODEX_BUSY_REGEX_DEFAULT='esc to interrupt'
++++ FM_DELIVERY_OPENCODE_BUSY_REGEX_DEFAULT='esc interrupt'
++++ FM_DELIVERY_PI_BUSY_REGEX_DEFAULT='Working\.\.\.'
++++ FM_OMP_SPINNER_FRAMES_RE='(⠋|⠙|⠹|⠸|⠼|⠴|⠦|⠧|⠇|⠏|⣾|⣽|⣻|⢿|⡿|⣟|⣯|⣷)'
++++ FM_DELIVERY_OMP_BUSY_REGEX_DEFAULT='Working…|^[[:space:]]*(⠋|⠙|⠹|⠸|⠼|⠴|⠦|⠧|⠇|⠏|⣾|⣽|⣻|⢿|⡿|⣟|⣯|⣷)[[:space:]]+[0-9]+[smh]'
++++ FM_DELIVERY_GROK_BUSY_REGEX_DEFAULT='Ctrl\+c:cancel'
++++ FM_DELIVERY_CURSOR_BUSY_REGEX_DEFAULT='ctrl\+c to stop'
++++ FM_DELIVERY_AGY_BUSY_REGEX_DEFAULT='esc[[:space:]]+to[[:space:]]+cancel'
++++ FM_DELIVERY_POLYTOKEN_BUSY_REGEX_DEFAULT='^[[:space:]]*Running for [0-9]+([.][0-9]+)?s'
++++ FM_DELIVERY_KIMI_BUSY_REGEX_DEFAULT='^[[:space:]]*(🌑|🌒|🌓|🌔|🌕|🌖|🌗|🌘)[[:space:]]+·[[:space:]]+'
+++++ printf '%s\n' ❯ › ⟩ → ❭
++++ FM_COMPOSER_AGENT_PROMPT_GLYPHS=$'❯\n›\n⟩\n→\n❭'
+++++ printf '%s\n' '>' '$' % '#'
++++ FM_COMPOSER_SHELL_PROMPT_GLYPHS=$'>\n$\n%\n#'
++++ FM_COMPOSER_IDLE_RE_DEFAULT='^Type a message\.\.\.$|^Ask anything(\.\.\.|…)|^Plan, search, build anything$|^Add a follow-up$|^Ask Devin to build features, fix bugs, or work on your code$|^Ask your question\.\.\.$'
++++ FM_COMPOSER_LEFTBAR_FOOTER_RE_DEFAULT='^(Build|Plan)[[:space:]]+·[[:space:]]+'
++++ FM_COMPOSER_MODE_HINT_RE_DEFAULT='^[[:space:]]*(⏵|⏸)'
++++ FM_COMPOSER_OMP_STATUS_RE_DEFAULT='^[[:space:]]*(π|󰵗)[[:space:]]+·[[:space:]]|^[[:space:]]*(⠋|⠙|⠹|⠸|⠼|⠴|⠦|⠧|⠇|⠏|⣾|⣽|⣻|⢿|⡿|⣟|⣯|⣷)[[:space:]]+[0-9]+[smh]([[:space:]]|$)|[[:space:]]·[[:space:]].*[0-9]+(\.[0-9]+)?%/[0-9]+K'
++++ FM_COMPOSER_PI_STATUS_RE_DEFAULT='^\$[0-9]+(\.[0-9]+)?([[:space:]]|$)'
++++ FM_COMPOSER_CAPTURE_LINES=20
++++ FM_COMPOSER_PI_MAX_LINES=8
++++ FM_COMPOSER_GROK_TITLE_OVERHANG=3
+++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
++++ _FM_AGENT_PROCESS_LIB_DIR=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
++++ '[' /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin '!=' /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
++++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++++ _FM_SESSION_LOCK_LIB_DIR=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
+++++ '[' /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin '!=' /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-cursor-lib.sh
++++++ FM_CURSOR_PROBE_TIMEOUT=10
+++++ unset _FM_SESSION_LOCK_LIB_DIR
+++++ FM_HARNESS_RE='claude|codex|opencode|grok|kimi|^pi$|^pi-signed$|^omp$'
+++++ FM_HARNESS_NAMES=(claude codex opencode grok kimi pi-signed pi omp)
+++++ FM_HARNESS_IS_CLAUDE=0
+++++ FM_SESSION_LOCK_FOREIGN_OWNER_PID=
+++++ FM_LOCK_INSPECT_STATE=unknown
+++++ FM_LOCK_INSPECT_PID=
+++++ FM_LOCK_INSPECT_LIVE_HARNESS=unknown
++++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
++++ unset _FM_AGENT_PROCESS_LIB_DIR
+++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-transition-lib.sh
++++ FM_TRANSITION_FIELD_SEP=$'\t'
+++ FM_BACKEND_REX_MIN_API=5
+++ FM_BACKEND_REX_COLUMNS=200
+++ FM_BACKEND_REX_ROWS=50
+++ FM_BACKEND_REX_BUNDLE_BIN='/Users/kunchen/Library/Application Support/com.superlogical.rex/RexServer/Versions/Current/Rex Server.app/Contents/MacOS/rex'
+++ FM_BACKEND_REX_LOCK_ATTEMPTS=300
+++ FM_BACKEND_REX_ESCALATED_PREFIX=.rex-escalated-
+++ FM_BACKEND_REX_DETAIL_MAX=160
++ _FM_BACKEND_REX_SOURCED=1
+++ fm_backend_rex_bin
+++ local found
+++ '[' -n '' ']'
++++ command -v rex
+++ found=/Users/kunchen/.local/bin/rex
+++ '[' -n /Users/kunchen/.local/bin/rex ']'
+++ printf %s /Users/kunchen/.local/bin/rex
+++ return 0
++ REX_TEST_REAL=/Users/kunchen/.local/bin/rex
++++ mktemp -d /tmp/fm-rex-test.XXXXXX
+++ cd /tmp/fm-rex-test.byaYIF
+++ pwd -P
++ REX_TEST_WORK=/private/tmp/fm-rex-test.byaYIF
++ mkdir -p /private/tmp/fm-rex-test.byaYIF/guard /private/tmp/fm-rex-test.byaYIF/home/state /private/tmp/fm-rex-test.byaYIF/server-state
++ :
++ :
++ REX_TEST_ENDPOINT=unix:///private/tmp/fm-rex-test.byaYIF/rex.sock
++ export REX_SERVER=unix:///private/tmp/fm-rex-test.byaYIF/rex.sock FM_HOME=/private/tmp/fm-rex-test.byaYIF/home STATE=/private/tmp/fm-rex-test.byaYIF/home/state
++ REX_SERVER=unix:///private/tmp/fm-rex-test.byaYIF/rex.sock
++ FM_HOME=/private/tmp/fm-rex-test.byaYIF/home
++ STATE=/private/tmp/fm-rex-test.byaYIF/home/state
++ REX_TEST_SERVER_PID=53218
++ /Users/kunchen/.local/bin/rex --autostart=false server run --listen unix:///private/tmp/fm-rex-test.byaYIF/rex.sock --state-dir /private/tmp/fm-rex-test.byaYIF/server-state --config /private/tmp/fm-rex-test.byaYIF/rex-config.lua --exit-empty
++ local i
++ for i in {1..100}
++ /Users/kunchen/.local/bin/rex --autostart=false -S unix:///private/tmp/fm-rex-test.byaYIF/rex.sock api call server.status
++ kill -0 53218
++ sleep 0.1
++ for i in {1..100}
++ /Users/kunchen/.local/bin/rex --autostart=false -S unix:///private/tmp/fm-rex-test.byaYIF/rex.sock api call server.status
++ break
++ kill -0 53218
++ /Users/kunchen/.local/bin/rex --autostart=false -S unix:///private/tmp/fm-rex-test.byaYIF/rex.sock api call server.status
++ rex_test_write_guard /private/tmp/fm-rex-test.byaYIF/guard/rex
++ cat
++ chmod +x /private/tmp/fm-rex-test.byaYIF/guard/rex
++ export REX_BIN_DIR=/private/tmp/fm-rex-test.byaYIF/guard FM_REX_TEST_REAL=/Users/kunchen/.local/bin/rex FM_REX_TEST_ENDPOINT=unix:///private/tmp/fm-rex-test.byaYIF/rex.sock FM_REX_TEST_ALLOWED=/private/tmp/fm-rex-test.byaYIF/allowed FM_REX_TEST_TRIP=/private/tmp/fm-rex-test.byaYIF/tripwire FM_REX_TEST_CALLS=/private/tmp/fm-rex-test.byaYIF/calls
++ REX_BIN_DIR=/private/tmp/fm-rex-test.byaYIF/guard
++ FM_REX_TEST_REAL=/Users/kunchen/.local/bin/rex
++ FM_REX_TEST_ENDPOINT=unix:///private/tmp/fm-rex-test.byaYIF/rex.sock
++ FM_REX_TEST_ALLOWED=/private/tmp/fm-rex-test.byaYIF/allowed
++ FM_REX_TEST_TRIP=/private/tmp/fm-rex-test.byaYIF/tripwire
++ FM_REX_TEST_CALLS=/private/tmp/fm-rex-test.byaYIF/calls
++ fm_backend_rex_version_check read
+++ rex_test_foreign_snapshot
+++ local sid
+++ rex_test_cli ls --json
+++ /Users/kunchen/.local/bin/rex --autostart=false -S unix:///private/tmp/fm-rex-test.byaYIF/rex.sock ls --json
+++ jq -r '.sessions[].session_id'
+++ sort
+++ IFS=
+++ read -r sid
++ REX_TEST_BEFORE=
+++ mktemp -d /tmp/fm-afk-rex-home.XXXXXX
++ home_tmp=/tmp/fm-afk-rex-home.U3DBbS
++ label=fm-test-afk-daemon-53103
+++ rex_test_new_session afk-cap
+++ local out sid bid
++++ fm_backend_rex_cli new fm-test-afk-cap-53103 --window fm-test-main --cwd /private/tmp/fm-rex-test.byaYIF --json
++++ local bin
+++++ fm_backend_rex_bin
+++++ local found
+++++ '[' -n /private/tmp/fm-rex-test.byaYIF/guard ']'
+++++ '[' -x /private/tmp/fm-rex-test.byaYIF/guard/rex ']'
+++++ printf %s /private/tmp/fm-rex-test.byaYIF/guard/rex
+++++ return 0
++++ bin=/private/tmp/fm-rex-test.byaYIF/guard/rex
++++ /private/tmp/fm-rex-test.byaYIF/guard/rex new fm-test-afk-cap-53103 --window fm-test-main --cwd /private/tmp/fm-rex-test.byaYIF --json
+++ out=$'{\n  "session_id": "session:REDACTED",\n  "initial_windows": [\n    {\n      "window_id": "window:01a164af-a46c-79fe-a67b-3504f092488c",\n      "block_ids": [\n        "block:01a164af-a455-7910-8320-c30872aa4472"\n      ],\n      "revision": 1\n    }\n  ]\n}'
++++ printf %s $'{\n  "session_id": "session:REDACTED",\n  "initial_windows": [\n    {\n      "window_id": "window:01a164af-a46c-79fe-a67b-3504f092488c",\n      "block_ids": [\n        "block:01a164af-a455-7910-8320-c30872aa4472"\n      ],\n      "revision": 1\n    }\n  ]\n}'
++++ jq -r .session_id
+++ sid=session:REDACTED
++++ printf %s $'{\n  "session_id": "session:REDACTED",\n  "initial_windows": [\n    {\n      "window_id": "window:01a164af-a46c-79fe-a67b-3504f092488c",\n      "block_ids": [\n        "block:01a164af-a455-7910-8320-c30872aa4472"\n      ],\n      "revision": 1\n    }\n  ]\n}'
++++ jq -r '.initial_windows[0].block_ids[0]'
+++ bid=block:01a164af-a455-7910-8320-c30872aa4472
+++ fm_backend_rex_id_valid session session:REDACTED
+++ case "$2" in
+++ fm_backend_rex_uuid_valid REDACTED
+++ case "$1" in
+++ fm_backend_rex_id_valid block block:01a164af-a455-7910-8320-c30872aa4472
+++ case "$2" in
+++ fm_backend_rex_uuid_valid 01a164af-a455-7910-8320-c30872aa4472
+++ case "$1" in
+++ printf '%s\n' session:REDACTED
+++ printf '%s %s' session:REDACTED block:01a164af-a455-7910-8320-c30872aa4472
++ out='session:REDACTED block:01a164af-a455-7910-8320-c30872aa4472'
++ read -r cap_sid cap_bid
++ cap_target=REDACTED:01a164af-a455-7910-8320-c30872aa4472
++ enter_posture /tmp/fm-afk-rex-home.U3DBbS
++ FM_HOME=/tmp/fm-afk-rex-home.U3DBbS
++ FM_STATE_OVERRIDE=/tmp/fm-afk-rex-home.U3DBbS/state
++ /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-afk-contract.sh enter
+++ rex_e2e_shape session:REDACTED
+++ rex_e2e fm_backend_rex_session_view session:REDACTED
+++ jq -c '[.windows[] | {window_id, blocks: [.layers[].blocks[].block_id]}]'
+++ unset REX_SESSION REX_BLOCK
+++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++ FM_BACKEND_SCRIPT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++++ dirname /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
+++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
+++++ pwd
++++ FM_BACKEND_LIB_DIR=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
++++ unset FM_BACKEND_SCRIPT
+++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/..
+++++ pwd
++++ FM_BACKEND_DEFAULT_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++++ FM_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++++ FM_HOME=/private/tmp/fm-rex-test.byaYIF/home
++++ FM_BACKEND_CONFIG_DIR=/tmp/fm-afk-off-config.q3iK89
++++ FM_BACKEND_KNOWN='tmux herdr zellij orca cmux paseo rex'
++++ FM_BACKEND_SPAWN='tmux herdr zellij orca cmux paseo rex'
++++ FM_BACKEND_CMUX_BUNDLE_ID=com.cmuxterm.app
++++ FM_BACKEND_VISIBLE_CAPTURE='tmux herdr zellij rex'
+++ fm_backend_source rex
+++ local name=rex adapter rel sibling
+++ fm_backend_validate rex
+++ local name=rex
+++ fm_backend_is_known rex
+++ fm_backend_list_contains 'tmux herdr zellij orca cmux paseo rex' rex
+++ local 'list=tmux herdr zellij orca cmux paseo rex' name=rex
+++ case "$name" in
+++ case " $list " in
+++ return 0
+++ return 0
+++ adapter=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++ case "$name" in
+++ set -- fm-backend-hometag-lib.sh fm-composer-lib.sh fm-agent-process-lib.sh fm-session-lock-lib.sh fm-gemini-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
+++ case "$name" in
+++ '[' -z 1 ']'
+++ fm_backend_rex_session_view session:REDACTED
+++ fm_backend_rex_read api call -s session:REDACTED session.view
++ before='[{"window_id":"window:01a164af-a46c-79fe-a67b-3504f092488c","blocks":["block:01a164af-a455-7910-8320-c30872aa4472"]}]'
++ unset REX_SESSION REX_BLOCK
++ FM_HOME=/tmp/fm-afk-rex-home.U3DBbS
++ FM_STATE_OVERRIDE=/tmp/fm-afk-rex-home.U3DBbS/state
++ FM_AFK_LAUNCH_LABEL=fm-test-afk-daemon-53103
++ FM_SUPERVISOR_TARGET=REDACTED:01a164af-a455-7910-8320-c30872aa4472
++ FM_SUPERVISOR_BACKEND=rex
++ FM_AFK_LAUNCH_ENTRY=/tmp/fm-afk-sleeper.AWEnfa
++ /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-afk-launch.sh start
+++ rex_e2e_shape session:REDACTED
+++ rex_e2e fm_backend_rex_session_view session:REDACTED
+++ jq -c '[.windows[] | {window_id, blocks: [.layers[].blocks[].block_id]}]'
+++ unset REX_SESSION REX_BLOCK
+++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++ FM_BACKEND_SCRIPT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++++ dirname /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
+++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
+++++ pwd
++++ FM_BACKEND_LIB_DIR=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
++++ unset FM_BACKEND_SCRIPT
+++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/..
+++++ pwd
++++ FM_BACKEND_DEFAULT_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++++ FM_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++++ FM_HOME=/private/tmp/fm-rex-test.byaYIF/home
++++ FM_BACKEND_CONFIG_DIR=/tmp/fm-afk-off-config.q3iK89
++++ FM_BACKEND_KNOWN='tmux herdr zellij orca cmux paseo rex'
++++ FM_BACKEND_SPAWN='tmux herdr zellij orca cmux paseo rex'
++++ FM_BACKEND_CMUX_BUNDLE_ID=com.cmuxterm.app
++++ FM_BACKEND_VISIBLE_CAPTURE='tmux herdr zellij rex'
+++ fm_backend_source rex
+++ local name=rex adapter rel sibling
+++ fm_backend_validate rex
+++ local name=rex
+++ fm_backend_is_known rex
+++ fm_backend_list_contains 'tmux herdr zellij orca cmux paseo rex' rex
+++ local 'list=tmux herdr zellij orca cmux paseo rex' name=rex
+++ case "$name" in
+++ case " $list " in
+++ return 0
+++ return 0
+++ adapter=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++ case "$name" in
+++ set -- fm-backend-hometag-lib.sh fm-composer-lib.sh fm-agent-process-lib.sh fm-session-lock-lib.sh fm-gemini-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
+++ case "$name" in
+++ '[' -z 1 ']'
+++ fm_backend_rex_session_view session:REDACTED
+++ fm_backend_rex_read api call -s session:REDACTED session.view
++ during='[{"window_id":"window:01a164af-a46c-79fe-a67b-3504f092488c","blocks":["block:01a164af-a455-7910-8320-c30872aa4472"]}]'
++ IFS=$'\t'
++ read -r rec_backend rec_target rec_sid
++ '[' -z session:REDACTED ']'
++ printf '%s\n' session:REDACTED
++ '[' '[{"window_id":"window:01a164af-a46c-79fe-a67b-3504f092488c","blocks":["block:01a164af-a455-7910-8320-c30872aa4472"]}]' = '[{"window_id":"window:01a164af-a46c-79fe-a67b-3504f092488c","blocks":["block:01a164af-a455-7910-8320-c30872aa4472"]}]' ']'
++ pass 'rex e2e: captain session unchanged after start (no tab or split)'
++ printf 'ok - %s\n' 'rex e2e: captain session unchanged after start (no tab or split)'
+ok - rex e2e: captain session unchanged after start (no tab or split)
++ '[' rex = rex ']'
++ '[' -n session:REDACTED ']'
++ '[' session:REDACTED '!=' session:REDACTED ']'
+++ rex_e2e fm_backend_rex_session_view session:REDACTED
+++ jq -r .label
+++ unset REX_SESSION REX_BLOCK
+++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++ FM_BACKEND_SCRIPT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++++ dirname /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
+++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
+++++ pwd
++++ FM_BACKEND_LIB_DIR=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
++++ unset FM_BACKEND_SCRIPT
+++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/..
+++++ pwd
++++ FM_BACKEND_DEFAULT_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++++ FM_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++++ FM_HOME=/private/tmp/fm-rex-test.byaYIF/home
++++ FM_BACKEND_CONFIG_DIR=/tmp/fm-afk-off-config.q3iK89
++++ FM_BACKEND_KNOWN='tmux herdr zellij orca cmux paseo rex'
++++ FM_BACKEND_SPAWN='tmux herdr zellij orca cmux paseo rex'
++++ FM_BACKEND_CMUX_BUNDLE_ID=com.cmuxterm.app
++++ FM_BACKEND_VISIBLE_CAPTURE='tmux herdr zellij rex'
+++ fm_backend_source rex
+++ local name=rex adapter rel sibling
+++ fm_backend_validate rex
+++ local name=rex
+++ fm_backend_is_known rex
+++ fm_backend_list_contains 'tmux herdr zellij orca cmux paseo rex' rex
+++ local 'list=tmux herdr zellij orca cmux paseo rex' name=rex
+++ case "$name" in
+++ case " $list " in
+++ return 0
+++ return 0
+++ adapter=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++ case "$name" in
+++ set -- fm-backend-hometag-lib.sh fm-composer-lib.sh fm-agent-process-lib.sh fm-session-lock-lib.sh fm-gemini-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
+++ case "$name" in
+++ '[' -z 1 ']'
+++ fm_backend_rex_session_view session:REDACTED
+++ fm_backend_rex_read api call -s session:REDACTED session.view
++ '[' fm-test-afk-daemon-53103 = fm-test-afk-daemon-53103 ']'
++ '[' REDACTED = REDACTED ']'
++ pass 'rex e2e: daemon launched in its own dedicated session, recorded by exact id'
++ printf 'ok - %s\n' 'rex e2e: daemon launched in its own dedicated session, recorded by exact id'
+ok - rex e2e: daemon launched in its own dedicated session, recorded by exact id
++ unset REX_SESSION REX_BLOCK
++ FM_HOME=/tmp/fm-afk-rex-home.U3DBbS
++ FM_STATE_OVERRIDE=/tmp/fm-afk-rex-home.U3DBbS/state
++ FM_SUPERVISOR_TARGET=REDACTED:01a164af-a455-7910-8320-c30872aa4472
++ FM_SUPERVISOR_BACKEND=rex
++ /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-afk-launch.sh stop
+++ rex_e2e_shape session:REDACTED
+++ rex_e2e fm_backend_rex_session_view session:REDACTED
+++ jq -c '[.windows[] | {window_id, blocks: [.layers[].blocks[].block_id]}]'
+++ unset REX_SESSION REX_BLOCK
+++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++ FM_BACKEND_SCRIPT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++++ dirname /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
+++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
+++++ pwd
++++ FM_BACKEND_LIB_DIR=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
++++ unset FM_BACKEND_SCRIPT
+++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/..
+++++ pwd
++++ FM_BACKEND_DEFAULT_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++++ FM_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++++ FM_HOME=/private/tmp/fm-rex-test.byaYIF/home
++++ FM_BACKEND_CONFIG_DIR=/tmp/fm-afk-off-config.q3iK89
++++ FM_BACKEND_KNOWN='tmux herdr zellij orca cmux paseo rex'
++++ FM_BACKEND_SPAWN='tmux herdr zellij orca cmux paseo rex'
++++ FM_BACKEND_CMUX_BUNDLE_ID=com.cmuxterm.app
++++ FM_BACKEND_VISIBLE_CAPTURE='tmux herdr zellij rex'
+++ fm_backend_source rex
+++ local name=rex adapter rel sibling
+++ fm_backend_validate rex
+++ local name=rex
+++ fm_backend_is_known rex
+++ fm_backend_list_contains 'tmux herdr zellij orca cmux paseo rex' rex
+++ local 'list=tmux herdr zellij orca cmux paseo rex' name=rex
+++ case "$name" in
+++ case " $list " in
+++ return 0
+++ return 0
+++ adapter=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++ case "$name" in
+++ set -- fm-backend-hometag-lib.sh fm-composer-lib.sh fm-agent-process-lib.sh fm-session-lock-lib.sh fm-gemini-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
+++ case "$name" in
+++ '[' -z 1 ']'
+++ fm_backend_rex_session_view session:REDACTED
+++ fm_backend_rex_read api call -s session:REDACTED session.view
++ after='[{"window_id":"window:01a164af-a46c-79fe-a67b-3504f092488c","blocks":["block:01a164af-a455-7910-8320-c30872aa4472"]}]'
++ '[' '[{"window_id":"window:01a164af-a46c-79fe-a67b-3504f092488c","blocks":["block:01a164af-a455-7910-8320-c30872aa4472"]}]' = '[{"window_id":"window:01a164af-a46c-79fe-a67b-3504f092488c","blocks":["block:01a164af-a455-7910-8320-c30872aa4472"]}]' ']'
++ pass 'rex e2e: captain session unchanged after stop'
++ printf 'ok - %s\n' 'rex e2e: captain session unchanged after stop'
+ok - rex e2e: captain session unchanged after stop
++ '[' -n session:REDACTED ']'
++ rex_e2e fm_backend_rex_session_view session:REDACTED
++ pass 'rex e2e: daemon session killed by exact id on stop'
++ printf 'ok - %s\n' 'rex e2e: daemon session killed by exact id on stop'
+ok - rex e2e: daemon session killed by exact id on stop
++ '[' '!' -e /tmp/fm-afk-rex-home.U3DBbS/state/.afk-daemon-terminal ']'
++ '[' '!' -e /tmp/fm-afk-rex-home.U3DBbS/state/.afk ']'
++ pass 'rex e2e: record + .afk cleared on stop'
++ printf 'ok - %s\n' 'rex e2e: record + .afk cleared on stop'
+ok - rex e2e: record + .afk cleared on stop
++ '[' -z session:REDACTED ']'
++ rex_e2e_kill_test_session session:REDACTED
++ local l
+++ rex_e2e fm_backend_rex_session_view session:REDACTED
+++ jq -r '.label // empty'
+++ unset REX_SESSION REX_BLOCK
+++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++ FM_BACKEND_SCRIPT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++++ dirname /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
+++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
+++++ pwd
++++ FM_BACKEND_LIB_DIR=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
++++ unset FM_BACKEND_SCRIPT
+++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/..
+++++ pwd
++++ FM_BACKEND_DEFAULT_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++++ FM_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++++ FM_HOME=/private/tmp/fm-rex-test.byaYIF/home
++++ FM_BACKEND_CONFIG_DIR=/tmp/fm-afk-off-config.q3iK89
++++ FM_BACKEND_KNOWN='tmux herdr zellij orca cmux paseo rex'
++++ FM_BACKEND_SPAWN='tmux herdr zellij orca cmux paseo rex'
++++ FM_BACKEND_CMUX_BUNDLE_ID=com.cmuxterm.app
++++ FM_BACKEND_VISIBLE_CAPTURE='tmux herdr zellij rex'
+++ fm_backend_source rex
+++ local name=rex adapter rel sibling
+++ fm_backend_validate rex
+++ local name=rex
+++ fm_backend_is_known rex
+++ fm_backend_list_contains 'tmux herdr zellij orca cmux paseo rex' rex
+++ local 'list=tmux herdr zellij orca cmux paseo rex' name=rex
+++ case "$name" in
+++ case " $list " in
+++ return 0
+++ return 0
+++ adapter=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++ case "$name" in
+++ set -- fm-backend-hometag-lib.sh fm-composer-lib.sh fm-agent-process-lib.sh fm-session-lock-lib.sh fm-gemini-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
+++ case "$name" in
+++ '[' -z 1 ']'
+++ fm_backend_rex_session_view session:REDACTED
+++ fm_backend_rex_read api call -s session:REDACTED session.view
++ l=
++ case "$l" in
++ rex_e2e_kill_test_session session:REDACTED
++ local l
+++ jq -r '.label // empty'
+++ rex_e2e fm_backend_rex_session_view session:REDACTED
+++ unset REX_SESSION REX_BLOCK
+++ . /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++ FM_BACKEND_SCRIPT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
++++++ dirname /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend.sh
+++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
+++++ pwd
++++ FM_BACKEND_LIB_DIR=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin
++++ unset FM_BACKEND_SCRIPT
+++++ cd /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/..
+++++ pwd
++++ FM_BACKEND_DEFAULT_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++++ FM_ROOT=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G
++++ FM_HOME=/private/tmp/fm-rex-test.byaYIF/home
++++ FM_BACKEND_CONFIG_DIR=/tmp/fm-afk-off-config.q3iK89
++++ FM_BACKEND_KNOWN='tmux herdr zellij orca cmux paseo rex'
++++ FM_BACKEND_SPAWN='tmux herdr zellij orca cmux paseo rex'
++++ FM_BACKEND_CMUX_BUNDLE_ID=com.cmuxterm.app
++++ FM_BACKEND_VISIBLE_CAPTURE='tmux herdr zellij rex'
+++ fm_backend_source rex
+++ local name=rex adapter rel sibling
+++ fm_backend_validate rex
+++ local name=rex
+++ fm_backend_is_known rex
+++ fm_backend_list_contains 'tmux herdr zellij orca cmux paseo rex' rex
+++ local 'list=tmux herdr zellij orca cmux paseo rex' name=rex
+++ case "$name" in
+++ case " $list " in
+++ return 0
+++ return 0
+++ adapter=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++ case "$name" in
+++ set -- fm-backend-hometag-lib.sh fm-composer-lib.sh fm-agent-process-lib.sh fm-session-lock-lib.sh fm-gemini-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/backends/rex.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-backend-hometag-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-composer-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-agent-process-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-session-lock-lib.sh ']'
+++ for rel in "$@"
+++ sibling=/Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
+++ fm_backend_source_readable /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh
+++ '[' -f /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
+++ '[' -r /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/bin/fm-gemini-lib.sh ']'
+++ case "$name" in
+++ '[' -z 1 ']'
+++ fm_backend_rex_session_view session:REDACTED
+++ fm_backend_rex_read api call -s session:REDACTED session.view
++ l=fm-test-afk-cap-53103
++ case "$l" in
++ rex_e2e fm_backend_rex_cli kill session:REDACTED
++ rex_test_assert_isolated
++ local after
++ '[' '!' -s /private/tmp/fm-rex-test.byaYIF/tripwire ']'
+++ rex_test_foreign_snapshot
+++ local sid
+++ rex_test_cli ls --json
+++ /Users/kunchen/.local/bin/rex --autostart=false -S unix:///private/tmp/fm-rex-test.byaYIF/rex.sock ls --json
+++ jq -r '.sessions[].session_id'
+++ sort
+++ IFS=
+++ read -r sid
++ after=
++ '[' '' = '' ']'
++ pass 'real rex: all state-changing calls stayed within this run'\''s private server'
++ printf 'ok - %s\n' 'real rex: all state-changing calls stayed within this run'\''s private server'
+ok - real rex: all state-changing calls stayed within this run's private server
++ rex_test_cleanup
++ local sid label
++ '[' -z '' ']'
++ REX_TEST_CLEANED=1
++ '[' -n /private/tmp/fm-rex-test.byaYIF ']'
++ IFS=
++ read -r sid
++ '[' -n session:REDACTED ']'
+++ rex_test_cli api call -s session:REDACTED session.view
+++ jq -r '.label // empty'
++ label=
++ case "$label" in
++ IFS=
++ read -r sid
++ '[' -n session:REDACTED ']'
+++ rex_test_cli api call -s session:REDACTED session.view
+++ jq -r '.label // empty'
++ label=
++ case "$label" in
++ IFS=
++ read -r sid
++ '[' -n session:REDACTED ']'
+++ rex_test_cli api call -s session:REDACTED session.view
+++ jq -r '.label // empty'
++ label=
++ case "$label" in
++ IFS=
++ read -r sid
++ '[' -n session:REDACTED ']'
+++ rex_test_cli api call -s session:REDACTED session.view
+++ jq -r '.label // empty'
++ label=
++ case "$label" in
++ IFS=
++ read -r sid
++ rex_test_stop_server
++ '[' -n 53218 ']'
++ kill 53218
++ wait 53218
++ REX_TEST_SERVER_PID=
++ rm -rf /private/tmp/fm-rex-test.byaYIF
++ rm -rf /tmp/fm-afk-rex-home.U3DBbS
++ '[' 0 -eq 0 ']'
++ GLOBAL_CLEANUP
++ declare -F rex_test_cleanup
++ rex_test_cleanup
++ local sid label
++ '[' -z 1 ']'
++ return 0
++ rm -f /tmp/fm-afk-sleeper.AWEnfa
++ rm -rf /tmp/fm-afk-off-config.q3iK89
++ local s

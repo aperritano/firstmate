@@ -1,0 +1,2 @@
+ok - rex e2e: captain session unchanged after start (no tab or split)
+ok - rex e2e: daemon launched in its own dedicated session, recorded by exact id

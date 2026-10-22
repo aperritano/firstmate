@@ -1,0 +1,3 @@
+ok - claude (2.1.308 (Claude Code)): real idle composer classifies empty on rex
+ok - claude (2.1.308 (Claude Code)): the same idle screen read cursorless is not pending (verdict: empty)
+ok - real rex: all state-changing calls stayed within this run's private server

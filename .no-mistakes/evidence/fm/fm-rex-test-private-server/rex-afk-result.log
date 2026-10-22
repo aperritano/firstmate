@@ -1,0 +1,6 @@
+ok - rex e2e: captain session unchanged after start (no tab or split)
+ok - rex e2e: daemon launched in its own dedicated session, recorded by exact id
+ok - rex e2e: captain session unchanged after stop
+ok - rex e2e: daemon session killed by exact id on stop
+ok - rex e2e: record + .afk cleared on stop
+ok - real rex: all state-changing calls stayed within this run's private server

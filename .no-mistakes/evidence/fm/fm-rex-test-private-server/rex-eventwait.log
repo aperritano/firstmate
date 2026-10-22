@@ -1,0 +1,7 @@
+ok - real rex: the push capability gate passes without starting a server
+ok - real rex: a driven blocked edge returns its record, with Rex's kind and message, 192ms after the report was sent
+ok - real rex: the watcher fast path enqueues a stale wake carrying Rex's blocked kind and message
+ok - real rex: an escalated block is not re-delivered and the reader runs its whole budget (2104ms for 2s)
+ok - real rex: closing a watched block ends the wait 153ms later for an immediate poll
+ok - real rex: a reader that cannot start returns 2 and the watcher falls back to polling
+ok - real rex: all state-changing calls stayed within this run's private server

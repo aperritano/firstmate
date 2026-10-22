@@ -1,0 +1,11 @@
+Disposable sentinel endpoint: unix:///private/tmp/fm-rex-test.ohcQJF/rex.sock
+Sentinel session: session:01a164b0-6b6e-7f2a-a519-0da42ee01b99
+not ok - private Rex server failed to start; see /Users/kunchen/.no-mistakes/worktrees/016d88035d58/01M5JA9A65YZTDHAZYVVJGGM9G/.rex-validation/fm-rex-test.C25Jv3/server.log
+PASS: real startup error failed closed (2), cleaned scratch, and did not fall back to reachable inherited server
+Nested endpoint: unix:///private/tmp/fm-rex-test.07CeKW/rex.sock
+session:01a164b0-6e82-79ee-8fe1-ade09dfbf487 block:01a164b0-6e82-7b08-9307-26d4dc1382f7
+Nested restart: no persisted sessions
+PASS: nested helper ignored inherited REX_SERVER; sentinel remained byte-identical and reachable after private stop/restart
+fm-rex-test guard: refused kill session:01a164b0-73d9-7119-b766-198fd25feb22
+PASS: guard refused kill of unowned session (97); real session still exists
+PASS: cleanup removed owned state and terminated the private server
