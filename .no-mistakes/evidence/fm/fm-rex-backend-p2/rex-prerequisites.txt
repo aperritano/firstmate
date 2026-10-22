@@ -1,0 +1,24 @@
+Rex live-validation prerequisites
+platform=Darwin arm64
+rex: not on PATH
+REX_BIN_DIR=<unset>
+Repository-local Rex candidates:
+docs/rex-backend.md
+tests/fm-backend-rex-composer-live-e2e.test.sh
+tests/fm-backend-rex.test.sh
+tests/fm-backend-rex-smoke.test.sh
+tests/fm-backend-rex-eventwait-smoke.test.sh
+tests/rex-test-safety.sh
+bin/backends/rex.sh
+bin/backends/rex-eventwait.lua
+
+Installed worker commands (availability only; not launched):
+/Users/kunchen/.local/bin/claude
+/opt/homebrew/bin/codex
+/Users/kunchen/.local/bin/cursor-agent
+/opt/homebrew/bin/opencode
+/Users/kunchen/.local/libexec/pi-launcher/bin/pi
+/Users/kunchen/.local/bin/grok
+kimi: absent
+/Users/kunchen/.local/bin/muse
+command-code: absent
