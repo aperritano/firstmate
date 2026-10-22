@@ -1,0 +1,6 @@
+Rex runtime markers auto-select Rex silently: selected=rex expected=rex stderr-bytes=0
+Nested tmux wins over inherited Rex markers: selected=tmux expected=tmux stderr-bytes=0
+Nested Herdr wins over inherited Rex markers: selected=herdr expected=herdr stderr-bytes=0
+Explicit environment selection wins over Rex detection: selected=paseo expected=paseo stderr-bytes=0
+Per-home configuration wins over Rex detection: selected=tmux expected=tmux stderr-bytes=0
+Inherited REX_BLOCK without TERM_PROGRAM=rex: no runtime detected
